@@ -14,7 +14,6 @@ connectDB();
 app.use(cors()); 
 app.use(express.json());
 app.use(session({ secret: process.env.JWT_SECRET, resave: false, saveUninitialized: true }));
-
 app.use('/api', jobRoutes);
 app.use('/api/auth', authRoutes);
 
