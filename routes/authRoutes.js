@@ -7,10 +7,7 @@ const router = express.Router();
 router.post('/signup', signUp);
 router.post('/login', login);
 
-// Example of a protected route
-router.get('/protected', authenticateToken, (req, res) => {
-  res.send('This is a protected route');
-});
+
 
 
 
