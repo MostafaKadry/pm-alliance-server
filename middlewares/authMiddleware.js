@@ -18,16 +18,16 @@ const protect = (req, res, next) => {
 
   if (req.headers.authorization && req.headers.authorization.startsWith('Bearer')) {
     try {
-      // Get token from the header
+     
       token = req.headers.authorization.split(' ')[1];
 
-      // Verify token
+      
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
 
-      // Attach user to the request object
+      
       req.user = decoded;
 
-      next(); // Move to the next middleware or route handler
+      next();
     } catch (error) {
       console.error('Token verification failed:', error.message);
       return res.status(401).json({ message: 'Not authorized, token failed' });
